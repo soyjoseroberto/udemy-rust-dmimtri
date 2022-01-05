@@ -26,7 +26,9 @@ fn main() {
                     Ok(_) => {
                         entry.push_str(&input.trim_end());
                     }
-                    Err(_) => continue
+                    Err(_) => {
+                        continue;
+                    }
                 }
 
                 if entry == code {

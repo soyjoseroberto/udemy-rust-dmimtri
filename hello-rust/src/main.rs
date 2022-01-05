@@ -22,6 +22,32 @@ fn operators()
     println!("b_cubed = {}, b_to_pi = {}", b_cubed, b_to_pi);
 }
 
+
+// Structs
+struct Point {
+    x: f64,
+    y: f64,
+}
+
+// A struct that containes a struct
+struct Line {
+    start: Point,
+    end: Point,
+}
+
+fn structures() {
+    // Instantiate a struct
+    let p1 = Point { x: 3.0, y: 4.0 };
+    println!("Point p1 is at ({}, {})", p1.x, p1.y);
+
+    // A second point
+    let p2 = Point { x: 5.0, y: 10.0 };
+
+    // Now create a line with 2 points
+    let my_line = Line { start: p1, end: p2 };
+    println!("Line from {} to {}", my_line.start.x, my_line.end.y);
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -38,4 +64,6 @@ fn main() {
     println!("c = {}, takes up {} bytes", c, mem::size_of_val(&c));
 
     operators();
+
+    structures();
 }
