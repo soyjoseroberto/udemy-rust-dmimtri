@@ -1,7 +1,7 @@
 #[allow(dead_code)]
 #[allow(unused_variables)]
 #[allow(unused_must_use)]
-
+mod pattern_matching;
 use std::mem;
 
 fn operators()
@@ -66,4 +66,7 @@ fn main() {
     operators();
 
     structures();
+
+    // Function from an external file
+    pattern_matching::demo();
 }
