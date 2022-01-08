@@ -93,6 +93,37 @@ fn vectors() {
     }
 }
 
+fn iterators() {
+    let number_vec = vec![3, 2, 1];
+
+    // use iter() to iterate
+    for x in number_vec.iter() {
+        println!("Vector item: {}", x); // Same result with *x, follow the ref to x.
+    }
+    
+    // Print vector in reverse
+    for y in number_vec.iter().rev() {
+        println!("Vector in reverse: {}", y); // Same result with *x, follow the ref to x.
+    }
+
+    // Using a mutable vector
+    let mut numbers = vec![3, 2, 1];
+
+    // use iter_mut()S
+    for x in numbers.iter_mut() {
+        println!("Vector mut item: {}", *x + 1); // Must use *x here
+    }
+
+    // into_iter() is used by extend()
+    let mut more_numbers = vec![9, 8, 7];
+    more_numbers.extend(numbers); // cannot use numbers vector after this line
+    println!("{:?}", more_numbers); // prints [9, 8, 7, 3, 2, 1]
+
+
+
+
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -117,4 +148,7 @@ fn main() {
 
     // Vectors
     vectors();
+
+    // Iterators
+    iterators();
 }
