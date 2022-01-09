@@ -124,6 +124,19 @@ fn iterators() {
 
 }
 
+// Closures
+fn say_hello() { println!("hello"); } // fn ref can be copied in closure
+fn closures() {
+    let sh = say_hello; // Not invoking say_hello
+    sh(); // Now invoking say_hello() through sh variable
+
+    // Closure, look at the |x| signature
+    let plus_one = |x: i32| -> i32 { x + 1 }; // Do not add ; after x + 1
+    let a = 6;
+    println!("{} + 1 = {}", a, plus_one(a));
+
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -151,4 +164,7 @@ fn main() {
 
     // Iterators
     iterators();
+
+    // Closures
+    closures();
 }
