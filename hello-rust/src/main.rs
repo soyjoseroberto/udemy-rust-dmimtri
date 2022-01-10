@@ -139,6 +139,9 @@ fn closures() {
 
 // Traits
 trait Animal {
+    // Static method because it does not take &self as an argument
+    fn create(name: &'static str) -> Self;
+
     fn name(&self) -> &'static str;
 
     fn talk(&self) {
@@ -158,6 +161,11 @@ struct Cat {
 
 // This is how a trait is implemented
 impl Animal for Human {
+    fn create(name: &'static str) -> Human {
+        Human{ name: name}
+    }
+
+
     fn name(&self) -> &'static str {
         self.name
     }
@@ -168,6 +176,9 @@ impl Animal for Human {
 }
 
 impl Animal for Cat {
+    fn create(name: &'static str) -> Cat {
+        Cat{ name: name}
+    }
     fn name(&self) -> &'static str {
         self.name
     }
@@ -178,7 +189,10 @@ impl Animal for Cat {
 }
 
 fn traits() {
-    let h = Human{ name: "Jose" };
+    // let h = Human{ name: "Jose" };
+    let h = Human::create("Jose");
+    // or let the compiler determine which implementation to use
+    // let h:Human = Animal::create("Jose"); 
     h.talk();
 
     let h = Cat{ name: "Whiskers" };
