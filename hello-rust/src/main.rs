@@ -137,6 +137,55 @@ fn closures() {
 
 }
 
+// Traits
+trait Animal {
+    fn name(&self) -> &'static str;
+
+    fn talk(&self) {
+        // Default implementation
+        println!("{} cannot talk.", self.name());
+    }
+}
+
+// Define a struct that would use a trait later
+struct Human {
+    name: &'static str
+}
+
+struct Cat {
+    name: &'static str
+}
+
+// This is how a trait is implemented
+impl Animal for Human {
+    fn name(&self) -> &'static str {
+        self.name
+    }
+
+    fn talk(&self) {
+        println!("{} says hello", self.name());
+    }
+}
+
+impl Animal for Cat {
+    fn name(&self) -> &'static str {
+        self.name
+    }
+
+    fn talk(&self) {
+        println!("{} says meow", self.name());
+    }
+}
+
+fn traits() {
+    let h = Human{ name: "Jose" };
+    h.talk();
+
+    let h = Cat{ name: "Whiskers" };
+    h.talk();
+
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -167,4 +216,7 @@ fn main() {
 
     // Closures
     closures();
+
+    // Traits
+    traits();
 }
