@@ -2,6 +2,7 @@
 #[allow(unused_variables)]
 #[allow(unused_must_use)]
 mod pattern_matching;
+mod traits_params;
 use std::mem;
 
 fn operators()
@@ -192,7 +193,8 @@ fn traits() {
     // let h = Human{ name: "Jose" };
     let h = Human::create("Jose");
     // or let the compiler determine which implementation to use
-    // let h:Human = Animal::create("Jose"); 
+    // let h:Human = Animal::create("Jose");
+    // Testing comments
     h.talk();
 
     let h = Cat{ name: "Whiskers" };
@@ -233,4 +235,7 @@ fn main() {
 
     // Traits
     traits();
+
+    // Traits as parameters
+    traits_params::traits_as_params();
 }
