@@ -1,9 +1,13 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
 use std::fmt::Debug;
 
+#[derive(Debug)]
 struct Circle {
     radius: f64,
 }
 
+#[derive(Debug)]
 struct Square {
     side: f64,
 }
@@ -18,7 +22,11 @@ impl Shape for Circle {
     }
 }
 
-fn print_info(shape: impl Shape) {
+// Three ways to specify an argument that implementes multiple traits
+// fn print_info(shape: impl Shape + Debug) {
+// fn print_info<T: Shape + Debug>(shape: T) {
+fn print_info<T>(shape: T) where T: Shape + Debug {
+    println!("{:?}", shape); // {:?} is the debug output
     println!("The area is {}", shape.area());
 }
 
