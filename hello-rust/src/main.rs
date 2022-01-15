@@ -141,7 +141,7 @@ fn closures() {
 // Traits
 trait Animal {
     // Static method because it does not take &self as an argument
-    fn create(name: &'static str) -> Self;
+    // fn create(name: &'static str) -> Self;
 
     fn name(&self) -> &'static str;
 
@@ -162,9 +162,9 @@ struct Cat {
 
 // This is how a trait is implemented
 impl Animal for Human {
-    fn create(name: &'static str) -> Human {
-        Human{ name: name}
-    }
+    // fn create(name: &'static str) -> Human {
+    //     Human{ name: name}
+    // }
 
 
     fn name(&self) -> &'static str {
@@ -177,9 +177,9 @@ impl Animal for Human {
 }
 
 impl Animal for Cat {
-    fn create(name: &'static str) -> Cat {
-        Cat{ name: name}
-    }
+    // fn create(name: &'static str) -> Cat {
+    //     Cat{ name: name}
+    // }
     fn name(&self) -> &'static str {
         self.name
     }
@@ -191,14 +191,25 @@ impl Animal for Cat {
 
 fn traits() {
     // let h = Human{ name: "Jose" };
-    let h = Human::create("Jose");
+    // let h = Human::create("Jose");
     // or let the compiler determine which implementation to use
     // let h:Human = Animal::create("Jose");
     // Testing comments
-    h.talk();
+    // h.talk();
 
     let h = Cat{ name: "Whiskers" };
     h.talk();
+
+}
+
+fn vector_diff_obj() {
+    let mut animals:Vec<Box<dyn Animal>> = Vec::new();
+    animals.push(Box::new(Human{name: "Ada"}));
+    animals.push(Box::new(Cat{name: "Fluffy"}));
+
+    for a in animals.iter() {
+        a.talk();
+    }
 
 }
 
@@ -233,9 +244,12 @@ fn main() {
     // Closures
     closures();
 
-    // Traits
-    traits();
+    // Traits: Uncomment create function to use this
+    // traits();
 
     // Traits as parameters
     traits_params::traits_as_params();
+
+    // Vectors of Different Objects (Section 8.48)
+    vector_diff_obj();
 }
