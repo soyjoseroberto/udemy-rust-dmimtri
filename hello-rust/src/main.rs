@@ -3,6 +3,7 @@
 #[allow(unused_must_use)]
 mod pattern_matching;
 mod traits_params;
+mod lifetimes;
 use std::mem;
 
 fn operators()
@@ -252,4 +253,7 @@ fn main() {
 
     // Vectors of Different Objects (Section 8.48)
     vector_diff_obj();
+
+    // Lifetimes
+    lifetimes::run();
 }
