@@ -11,9 +11,23 @@ struct Company<'z> {
     ceo: &'z Person
 }
 
+struct Robot<'a> {
+    name: &'a str // Without the lifetime specifier you get errors
+}
+
+impl<'a> Robot<'a> { // Notice how the lifetime is specified in 2 places
+    fn talk(&self) {
+        println!("I am a robot and my name is {}", self.name)
+    }
+}
+
 pub fn run() {
     let boss = Person { name: String::from("Elon Musk")};
     let tesla = Company { name: String::from("Tesla"), ceo: &boss };
 
-    println!("Company: {}, CEO: {}", tesla.name, tesla.ceo.name)
+    println!("Company: {}, CEO: {}", tesla.name, tesla.ceo.name);
+
+    // Lifetime in structure
+    let robot = Robot { name: "Optimus Prime" };
+    robot.talk();
 }
