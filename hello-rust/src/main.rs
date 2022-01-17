@@ -190,7 +190,7 @@ impl Animal for Cat {
     }
 }
 
-fn traits() {
+// fn traits() {
     // let h = Human{ name: "Jose" };
     // let h = Human::create("Jose");
     // or let the compiler determine which implementation to use
@@ -198,10 +198,9 @@ fn traits() {
     // Testing comments
     // h.talk();
 
-    let h = Cat{ name: "Whiskers" };
-    h.talk();
-
-}
+    // let h = Cat{ name: "Whiskers" };
+    // h.talk();
+// }
 
 fn vector_diff_obj() {
     let mut animals:Vec<Box<dyn Animal>> = Vec::new();
