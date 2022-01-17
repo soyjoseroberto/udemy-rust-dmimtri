@@ -4,6 +4,7 @@
 mod pattern_matching;
 mod traits_params;
 mod lifetimes;
+mod memory;
 use std::mem;
 
 fn operators()
@@ -255,4 +256,7 @@ fn main() {
 
     // Lifetimes
     lifetimes::run();
+
+    // Memory: Rc, Arc, Mutex
+    memory::run();
 }
