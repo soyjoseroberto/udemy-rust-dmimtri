@@ -1,15 +1,25 @@
+//! This comment applies to the whole module
+//! 
+//! # You can use markdown
+//! ```
+//! println!(greetings::english::hello());
+//! ```
 pub mod greetings {
     pub mod english {
+        /// This function prints hello in English
         pub fn hello() -> String { "hello".to_string() }
         pub fn goodbye() -> String { "goodbye".to_string() }
 
     }
     
     pub mod french {
+        /// This function prints hello in French
         pub fn hello() -> String { "bonjour".to_string() }
         pub fn goodbye() -> String { "au revoir".to_string() }
     }
 }
+
+// Run rustdoc lib.rs to generate doc folder
 
 // Testing: Run 'cargo test' to see testing results
 // #[should_panic] when a failing test is expected
